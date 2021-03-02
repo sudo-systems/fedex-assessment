@@ -1,0 +1,32 @@
+<div *ngIf="isUserRegistered">
+  <div class="row mb-5">
+    <div class="col-12">
+      <h3>Registration completed</h3>
+      Thank you for your registration. We will contact you as soon as possible using the provided email address!
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 text-right">
+      Name
+    </div>
+    <div class="col-9">
+      <strong>{{ userData.firstName }} {{ userData.lastName }}</strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 text-right">
+      Email address
+    </div>
+    <div class="col-9">
+    <strong>{{ userData.email }}</strong>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isRegistrationError" class="row mb-5">
+  <div class="col-12">
+    <h3>An unknown error has occurred</h3>
+    The registration could not be completed due to an unknown error. <br />
+    Please <a href="javascript: void(0);" (click)="tryAgain.emit()" title="Try again">try again</a> in a few minutes.
+  <div>
+</div>

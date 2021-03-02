@@ -1,0 +1,150 @@
+<form
+  *ngIf="!state.isUserRegistered && !state.isRegistrationError && !state.isRegistering"
+  [formGroup]="registrationForm"
+  (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-12 text-right">
+      <small class="text-secondary font-weight-light">* All fields are required</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName" class="cols-sm-2 control-label">Full name</label>
+    <div class="cols-sm-5">
+      <div class="input-group has-validation">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon>
+          </span>
+        </div>
+        <input
+          formControlName="firstName"
+          type="text"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('firstName')"
+          id="firstName"
+          placeholder="First name"
+          autofocus
+        />
+        <input
+          formControlName="lastName"
+          type="text"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('lastName')"
+          id="lastName"
+          placeholder="Last name"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="cols-sm-2 control-label">Email address</label>
+    <div class="cols-sm-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+          </span>
+        </div>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('email')"
+          id="email"
+          placeholder="your@email-address.com"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmEmail" class="cols-sm-2 control-label">Confirm email address</label>
+    <div class="cols-sm-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+          </span>
+        </div>
+        <input
+          formControlName="confirmEmail"
+          type="email"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('confirmEmail')"
+          id="confirmEmail"
+          placeholder="your@email-address.com"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="cols-sm-2 control-label">Password</label>
+    <div class="cols-sm-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+          </span>
+        </div>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('password')"
+          id="password"
+        />
+      </div>
+    </div>
+    <div class="col-sm-12 text-center">
+      <small class="text-secondary font-weight-light">
+        ⦿ at least 8 characters ⦿ both upper- and lowercase ⦿ first and last name not allowed
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword" class="cols-sm-2 control-label">Confirm password</label>
+    <div class="cols-sm-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+          </span>
+        </div>
+        <input
+          formControlName="confirmPassword"
+          type="password"
+          class="form-control"
+          [ngClass]="getFormComponentStyle('confirmPassword')"
+          id="confirmPassword"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <input [disabled]="state.isRegistering" name="Register" type="submit" class="btn btn-primary btn-lg btn-block" />
+    </div>
+    <div *ngIf="!registrationForm.pristine" class="col">
+      <button (click)="resetForm()" type="button" class="btn btn-secondary btn-lg btn-block">Reset</button>
+    </div>
+  </div>
+
+</form>
+
+<div *ngIf="state.isRegistering">
+  <h3>Registration in progress...</h3>
+  The registration will be completed momentarily.
+</div>
+
+<app-registration-message
+  [userData]="registeredUserData"
+  [isUserRegistered]="state.isUserRegistered"
+  [isRegistrationError]="state.isRegistrationError"
+  (tryAgain)="resetForm()">
+</app-registration-message>
