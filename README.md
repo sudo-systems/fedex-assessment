@@ -23,9 +23,9 @@ I've used a few third party libraries. Why write code if you can use quality cod
 
 ## Limitations
 
-I could have spent 5 days, writing the perfect registration form, but I didn't have the time for that and I'm assuming that what I'm providing you with here is enough for you to determine if I'm suitable for the project.
+I could have spent 5 days, writing the perfect registration form, but I didn't have the time for that and I'm assuming that what I'm providing you with here is enough for you to determine if a follow up meeting is worth your time.
 
-I've added some unit tests, but because of the limited time available coverage is not 100%. For the same reason I could not add e2e tests. At the same time that last subject is one that I have some experience with (I've written e2e tests for about two years), but the technique I had to use for that customer (de Volksbank) was developed in house and pretty far oof the standards. For that reason I'm not very familiar with the e2e testing framework that's integrated in Angular by default. But I would very much like to learn!
+I've added some unit tests, but because of the limited time available coverage is not 100%. For the same reason I could not add e2e tests. At the same time that last subject is one that I have some experience with (I've written e2e tests for about two years), but the technique I had to use for that customer (de Volksbank) was developed in house and only just comparable with the standard Angular implementation. For that reason I'm not very familiar with the e2e testing framework that's integrated in Angular by default. But I would very much like to learn!
 
 ## Result
 
